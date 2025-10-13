@@ -71,6 +71,12 @@ html {
     height: 100%;
     /* To make the background as desired */
     overflow: hidden;
+    font-size: 14px;
+    color: #FEFCFA;
+    font-family: "Google Sans Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
 }
 
 body {
@@ -81,8 +87,7 @@ body {
     margin: 0 auto;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    overflow: hidden;
+    height: 100vh;
 }
 
 /* Logo */
@@ -94,17 +99,18 @@ body {
 /* Password box */
 #password-box {
     flex-direction: column;
-}
-
-#password-box-title {
     width: 400px;
     height: 500px;
     background-color: #1E2226;
     box-shadow: 0 5px 20px 2px rgba(0, 0, 0, .3);
     border-radius: 6px;
+    padding: 15px 30px;
+    /* justify-content: space-between; */
+}
+
+#password-box-title {
     gap: 25px;
     align-items: flex-start;
-    padding: 12px 20px;
 }
 
 /* Title */
@@ -116,4 +122,68 @@ body {
 #password-box-title h1 span {
     font-weight: 700;
     font-style: normal;
+}
+
+/* Length input */
+#password-box-input {
+    margin: 16px 0;
+    font-size: 12px;
+}
+
+#password-box-input input {
+    border-bottom: 1px solid #b1b1b1;
+    width: 200px;
+    padding: 5px;
+    font-size: 14px;
+}
+
+/* Password Generate button */
+#password-generate {
+    width: 100%;
+    display: flex;
+}
+
+#btn {
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #151718;
+    background-color: #FEFCFA;
+    padding: 10px 20px;
+    flex: 1;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+#btn:hover {
+    background-color: #838383;
+    transition: .3s ease;
+}
+
+/* Password output */
+#password-output {
+    flex-direction: column;
+    margin: 30px 0;
+    gap: 10px;
+}
+
+.password-output-render {
+    gap: 20px;
+    align-items: center;
+}
+
+.password-output-render img {
+    width: 25px;
+    height: 25px;
+}
+
+.low-opacity {
+    opacity: .5;
+}
+
+#password-one,
+#password-two {
+    padding-bottom: 1px;
+    border-bottom: 1px solid;
+    width: 80%;
 }

@@ -24,7 +24,26 @@
                 </div>
                 <h1 class="space-mono-regular">PANDA <span>LOCK</span></h1>
             </div>
-            
+            <div id="password-box-input">
+                <p>Please input a password length between 8 and 15. The default length of 15
+                    will be used when there is no input.</p>
+                <input type="number" autocomplete="off" id="length" min="8" max="15" class="google-sans-code"
+                    placeholder="15">
+            </div>
+            <div id="password-generate">
+                <button id="btn" class="space-mono-bold">Generate Password</button>
+            </div>
+            <div id="password-output" class="flex">
+                <div class="password-output-render flex">
+                    <img src="./assets/icons/lock1.svg" alt="Key icon">
+                    <p id="password-one" class="low-opacity">First Password</p>
+                </div>
+                <div class="password-output-render flex">
+                    <img src="./assets/icons/lock2.svg" alt="Key icon">
+                    <p id="password-two" class="low-opacity">Second Password</p>
+                </div>
+                <p id="tool-tips"></p>
+            </div>
         </div>
     </div>
     <script src="./assets/js/app.js"></script>
