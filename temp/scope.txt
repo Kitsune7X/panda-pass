@@ -1,0 +1,4 @@
+- Generate 2 passwords.
+- Each password should be 15 character long.
+- Click to copy feature.
+- Adjustable password length.
