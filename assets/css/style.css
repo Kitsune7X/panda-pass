@@ -1,0 +1,119 @@
+/* ------- Reset CSS ------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+picture {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    appearance: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+    outline: none;
+    font-size: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+:root {
+    color-scheme: dark;
+}
+
+/* ------- Fonts -------*/
+.space-mono-regular {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.space-mono-bold {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.google-sans-code {
+    font-family: "Google Sans Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* ------ Flexbox goes brrrrrrrrr ------- */
+.flex {
+    display: flex;
+}
+
+/* ------- Main ------- */
+/* ------ Body ------- */
+body,
+html {
+    height: 100%;
+    /* To make the background as desired */
+    overflow: hidden;
+}
+
+body {
+    background: linear-gradient(35deg, #FEFCFA 50%, #151718 50.1%);
+}
+
+.container {
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Logo */
+.logo {
+    width: 70px;
+    height: auto;
+}
+
+/* Password box */
+#password-box {
+    flex-direction: column;
+}
+
+#password-box-title {
+    width: 400px;
+    height: 500px;
+    background-color: #1E2226;
+    box-shadow: 0 5px 20px 2px rgba(0, 0, 0, .3);
+    border-radius: 6px;
+    gap: 25px;
+    align-items: flex-start;
+    padding: 12px 20px;
+}
+
+/* Title */
+#password-box-title h1 {
+    margin-top: 10px;
+    color: #FEFCFA;
+}
+
+#password-box-title h1 span {
+    font-weight: 700;
+    font-style: normal;
+}
