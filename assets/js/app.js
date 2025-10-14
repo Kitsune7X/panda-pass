@@ -65,36 +65,53 @@ passwordLength.addEventListener("input", () => {
 btnGenerate.addEventListener("click", () => {
 
     if (isValid && validLength) {
+        // Generate Password with desired length
         passwordOne.textContent = `${generatePassword(validLength)}`;
+        // Remove low-opacity styling
         passwordOne.classList.remove("low-opacity");
+        // Turn the cursor to pointer
         passwordOne.classList.add("cursor-pointer");
+
+        // Same process for passwordTwo
         passwordTwo.textContent = `${generatePassword(validLength)}`;
         passwordTwo.classList.remove("low-opacity");
         passwordTwo.classList.add("cursor-pointer");
 
     } else if (isValid && (validLength === 0 || validLength !== NaN)) { // NaN is not equal to NaN :( . Took me too long to debug this
+        // PasswordOne
         passwordOne.textContent = `${generatePassword(DEFAULT)}`;
         passwordOne.classList.remove("low-opacity");
         passwordOne.classList.add("cursor-pointer");
+
+        // PasswordTwo
         passwordTwo.textContent = `${generatePassword(DEFAULT)}`;
         passwordTwo.classList.remove("low-opacity");
         passwordTwo.classList.add("cursor-pointer");
     }
+    // Change the status of isGenerated to true
     isGenerated = true;
+    // Display the tool tip
     tooltip.textContent = "Click on the generated Password to copy";
 });
 
+// ---------------------------------
+// Copy tooltip
+// ---------------------------------
 passwordOne.addEventListener("click", () => {
     if (isGenerated) {
+        // Write to clipboard
         navigator.clipboard.writeText(passwordOne.textContent);
+        // Display "COPIED"
         tooltipCopyOne.classList.remove("hidden");
     }
 });
 
+// Hide copy tooltip when move mouse away
 passwordOne.addEventListener("mouseout", () => {
     tooltipCopyOne.classList.add("hidden");
 });
 
+// Same process for passwordTwo
 passwordTwo.addEventListener("click", () => {
     if (isGenerated) {
         navigator.clipboard.writeText(passwordTwo.textContent);

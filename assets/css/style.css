@@ -188,6 +188,13 @@ body {
     border-bottom: 1px solid;
     width: 80%;
     margin: 7px 0 14px 0;
+    transition: .3s ease;
+}
+
+#password-one:hover,
+#password-two:hover {
+    transition: .3s ease;
+    opacity: .5;
 }
 
 .cursor-pointer {
