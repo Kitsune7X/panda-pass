@@ -30,8 +30,8 @@
             <div id="password-box-input">
                 <p>Please input a password length between 8 and 15. The default length of 15
                     will be used when there is no input.</p>
-                <input type="number" autocomplete="off" id="length" name="length" min="8" max="15" class="google-sans-code"
-                    placeholder="15">
+                <input type="number" autocomplete="off" id="length" name="length" min="8" max="15"
+                    class="google-sans-code" placeholder="15">
                 <label for="length"></label>
             </div>
             <div id="password-generate">
@@ -40,13 +40,15 @@
             <div id="password-output" class="flex">
                 <div class="password-output-render flex">
                     <img src="./assets/icons/lock1.svg" alt="Key icon">
-                    <p id="password-one" class="low-opacity">First Password</p>
+                    <span id="password-one" class="low-opacity">First Password</span>
+                    <span id="tool-tips-copy1" class="hidden low-opacity">COPIED</span>
                 </div>
                 <div class="password-output-render flex">
                     <img src="./assets/icons/lock2.svg" alt="Key icon">
-                    <p id="password-two" class="low-opacity">Second Password</p>
+                    <span id="password-two" class="low-opacity">Second Password</span>
+                    <span id="tool-tips-copy2" class="hidden low-opacity">COPIED</span>
                 </div>
-                <p id="tool-tips"></p>
+                <span id="tool-tips" class="low-opacity"></span>
             </div>
         </div>
     </div>

@@ -5,53 +5,136 @@ const ASCII_START = 33;
 // ASCII Code for password char end range
 const ASCII_END = 126;
 
+// ---------------------------
+// Variables declaration
+//----------------------------
+
 // Get input field
 const passwordLength = document.querySelector("#length");
 
 // Get input label
 const label = document.querySelector("label");
 
-let validLength = NaN;
+// Initialize validLength variable
+let validLength = 0;
+
+// Initialize valid check
+let isValid = true;
+
+// Initialize check if password got generated
+let isGenerated = false;
 
 // Get Generate password button
 const btnGenerate = document.querySelector("#btn");
 
-// // console.log(passwordLength.value);
-// passwordLength.addEventListener("input", () => {
-//     console.log(parseInt(passwordLength.value));
-// });
+// Get Password 1
+const passwordOne = document.querySelector("#password-one");
+// Get Password 2
+const passwordTwo = document.querySelector("#password-two");
 
-// Check for valid user input
+// Get tooltip
+const tooltip = document.querySelector("#tool-tips");
+// Get tooltip showing copy status
+const tooltipCopyOne = document.querySelector("#tool-tips-copy1");
+const tooltipCopyTwo = document.querySelector("#tool-tips-copy2");
+
+// ---------------------------
+// ------- Main -------
+//----------------------------
+
+// ---------------------------
+// Check for user input
+//----------------------------
 passwordLength.addEventListener("input", () => {
     // Assign input field value
     let lengthValue = parseInt(passwordLength.value);
 
     if (lengthValue < 8 || lengthValue > 15) {
         label.textContent = "Invalid value";
+        isValid = false;
     } else {
         label.textContent = "";
-        // console.log(lengthValue);
         validLength = returnLength(lengthValue);
+        isValid = true;
     }
 });
 
+// ---------------------------
+// Generate password when user click "Generate Password" button
+//----------------------------
 btnGenerate.addEventListener("click", () => {
-    // if (validLength) {
 
-    // }
-    generatePassword();
+    if (isValid && validLength) {
+        passwordOne.textContent = `${generatePassword(validLength)}`;
+        passwordOne.classList.remove("low-opacity");
+        passwordOne.classList.add("cursor-pointer");
+        passwordTwo.textContent = `${generatePassword(validLength)}`;
+        passwordTwo.classList.remove("low-opacity");
+        passwordTwo.classList.add("cursor-pointer");
+
+    } else if (isValid && (validLength === 0 || validLength !== NaN)) { // NaN is not equal to NaN :( . Took me too long to debug this
+        passwordOne.textContent = `${generatePassword(DEFAULT)}`;
+        passwordOne.classList.remove("low-opacity");
+        passwordOne.classList.add("cursor-pointer");
+        passwordTwo.textContent = `${generatePassword(DEFAULT)}`;
+        passwordTwo.classList.remove("low-opacity");
+        passwordTwo.classList.add("cursor-pointer");
+    }
+    isGenerated = true;
+    tooltip.textContent = "Click on the generated Password to copy";
 });
 
+passwordOne.addEventListener("click", () => {
+    if (isGenerated) {
+        navigator.clipboard.writeText(passwordOne.textContent);
+        tooltipCopyOne.classList.remove("hidden");
+    }
+});
+
+passwordOne.addEventListener("mouseout", () => {
+    tooltipCopyOne.classList.add("hidden");
+});
+
+passwordTwo.addEventListener("click", () => {
+    if (isGenerated) {
+        navigator.clipboard.writeText(passwordTwo.textContent);
+        tooltipCopyTwo.classList.remove("hidden");
+    }
+});
+
+passwordTwo.addEventListener("mouseout", () => {
+    tooltipCopyTwo.classList.add("hidden");
+});
+
+// ---------------------------
+// Functions
+//----------------------------
+
 // Return password length function
-function returnLength (lengthValue) {
+function returnLength(lengthValue) {
     return lengthValue;
 }
 
 // Generate password function
-function generatePassword () {
-    let passwordArray =[];
-    for (let i = ASCII_START; i <= ASCII_END; i++) {        
+function generatePassword(lengthValue) {
+    let passwordArray = [];
+    let generatedPassword = "";
+    let passwordChar = "";
+    for (let i = ASCII_START; i <= ASCII_END; i++) {
         passwordArray.push(String.fromCharCode(i));
     }
-    
+
+    // console.log(passwordArray[Math.floor(Math.random() * passwordArray.length)]);
+
+    // Assign random letter to generated password
+    for (let i = 0; i < lengthValue; i++) {
+        // Get random letter from password array and assign it to a variable                 
+        passwordChar = (passwordArray[Math.floor(Math.random() * passwordArray.length)]);
+
+        // Output generated password string
+        generatedPassword = `${generatedPassword}${passwordChar}`;
+    }
+
+    // Return Generated Password
+    return generatedPassword;
 }

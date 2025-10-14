@@ -170,6 +170,7 @@ body {
 .password-output-render {
     gap: 20px;
     align-items: center;
+    position: relative;
 }
 
 .password-output-render img {
@@ -186,4 +187,38 @@ body {
     padding-bottom: 1px;
     border-bottom: 1px solid;
     width: 80%;
+    margin: 7px 0 14px 0;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Tooltips */
+#tool-tips-copy1,
+#tool-tips-copy2 {
+    position: absolute;
+}
+
+#tool-tips-copy1 {
+    right: 22px;
+    bottom: 20px;
+}
+
+#tool-tips-copy2 {
+    right: 22px;
+    bottom: 20px;
+}
+
+#tool-tips {
+    font-size: 12px;
+    margin: 40px auto 20px auto;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.visible {
+    visibility: visible;
 }
