@@ -124,12 +124,6 @@ body {
     font-style: normal;
 }
 
-@media screen and (width <=480px) {
-    #password-box {
-        width: 360px;
-    }
-}
-
 /* Length input */
 #password-box-input {
     margin: 16px 0;
