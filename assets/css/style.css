@@ -125,12 +125,6 @@ body {
 }
 
 @media screen and (width <=480px) {
-    body {
-        display: flex;
-        margin: 0;
-        padding: 8px;
-    }
-
     #password-box {
         width: 360px;
     }
